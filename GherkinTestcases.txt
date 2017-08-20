@@ -69,7 +69,7 @@ Feature: Appearance of Home page Transavia
     And Window is re-sizable
 
 
-Security of Home page Transavia
+Feature: Security of Home page Transavia
   
   Scenario: SQL injection is not possible
     Given I should be at the home page
