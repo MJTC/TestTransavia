@@ -1,4 +1,3 @@
-
 Feature: Home page transavia
   To test the home page of Transavia web site
 
