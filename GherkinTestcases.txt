@@ -1,0 +1,86 @@
+Feature: Home page transavia
+  To test the home page of Transavia web site
+
+  Scenario: Book a return flight
+    Given I should be at the home page
+    And I provide a valid departure airport and destinaton airport
+    And I provide a valid departure date and return date
+    And I provide the valid number of passengers
+    When I click the Search button
+    Then I should see the Outbound and Inbound flights
+    And I should see the price per flight
+
+  Scenario: Opting for a single flight
+    Given I should be at the home page
+    When I click the Return On button
+    Then I should see the text "Single flight" 
+
+  Scenario: Book a single flight
+    Given I should be at the home page
+    And I choose a sinlge flight
+    And I provide a valid departure date
+    And I provide the valid number of passengers
+    When I click the Search button
+    Then I should see Outbound flights
+    And I should see no Inbound flights
+
+  Scenario: Book a flight without departure airport
+    Given I should be at the home page
+    And I provide no departure airport and a valid destinaton airport
+    And I provide a valid departure date and return date before the departure date
+    And I provide the valid number of passengers
+    When I click the Search button
+    Then the field departure airport is empty
+    And a message is displayed to indicate "This field is required"
+
+  Scenario: Book an indirect flight
+    Given I should be at the home page
+    And I provide a valid departure airport and indirect destinaton airport
+    And I provide a valid departure date and return date
+    And I provide the valid number of passengers
+    When I click the Search button
+    Then I should see a message stating to change destination as this was not a direct flight
+    And I should not be able to select a flight 
+    And I should be able to Search again
+    And I should be able to change airport
+
+
+  Scenario: Book a flight with return date before departure date
+    Given I should be at the home page
+    And I provide a valid departure airport and destinaton airport
+    And I provide a valid departure date and return date before the departure date
+    And I provide the valid number of passengers
+    When I click the Search button
+    Then I should see no flights
+
+
+
+
+Feature: Appearance of Home page Transavia
+  
+  Scenario: Opening home page Transavia
+    Given I open the web browser
+    When I open the Transavia home page
+    Then There are no spelling and grammatical errors in the text
+    And I should not be able to type in drop down select lists
+    And All fields on page (e.g. text box, radio options, dropdown lists) should be aligned properly
+    And Style, font size and color for headline, description text, labels, infield data, and grid info should be standard as specified
+    And Dropdown list options are readable and not truncated due to field size limit
+    And Window is re-sizable
+
+
+Security of Home page Transavia
+  
+  Scenario: SQL injection is not possible
+    Given I should be at the home page
+    And I provide a SQL statement as departure airport and destinaton airport
+    And I provide a valid departure date and return date before the departure date
+    And I provide the valid number of passengers
+    When I click the Search button
+    Then the field departure airport is empty
+    And a message is displayed to indicate "This field is required"
+
+
+
+
+
