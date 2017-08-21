@@ -44,6 +44,16 @@ Feature: Home page transavia
     And I should be able to Search again
     And I should be able to change airport
 
+  Scenario: Book an flight with more then douoble the nr of babies then adults
+    Given I should be at the home page
+    And I provide a valid departure airport and destinaton airport
+    And I provide a valid departure date and return date
+    And I provide the 1 adult passengers and 4 Babies
+    When I click the Search button
+    Then I should see a message stating "Each adult (>16 years) may travel with 2 babies"
+    And I should not be able to select a flight 
+    And I should be able to Search again
+
 
   Scenario: Book a flight with return date before departure date
     Given I should be at the home page
