@@ -1,9 +1,9 @@
-Feature: Home page transavia
+Feature: Home page Transavia
   To test the home page of Transavia web site
 
   Scenario: Book a return flight
     Given I should be at the home page
-    And I provide a valid departure airport and destinaton airport
+    And I provide a valid departure airport and destination airport
     And I provide a valid departure date and return date
     And I provide the valid number of passengers
     When I click the Search button
@@ -17,7 +17,7 @@ Feature: Home page transavia
 
   Scenario: Book a single flight
     Given I should be at the home page
-    And I choose a sinlge flight
+    And I choose a single flight
     And I provide a valid departure date
     And I provide the valid number of passengers
     When I click the Search button
@@ -26,7 +26,7 @@ Feature: Home page transavia
 
   Scenario: Book a flight without departure airport
     Given I should be at the home page
-    And I provide no departure airport and a valid destinaton airport
+    And I provide no departure airport and a valid destination airport
     And I provide a valid departure date and return date before the departure date
     And I provide the valid number of passengers
     When I click the Search button
@@ -35,7 +35,7 @@ Feature: Home page transavia
 
   Scenario: Book an indirect flight
     Given I should be at the home page
-    And I provide a valid departure airport and indirect destinaton airport
+    And I provide a valid departure airport and indirect destination airport
     And I provide a valid departure date and return date
     And I provide the valid number of passengers
     When I click the Search button
@@ -44,9 +44,9 @@ Feature: Home page transavia
     And I should be able to Search again
     And I should be able to change airport
 
-  Scenario: Book an flight with more then douoble the nr of babies then adults
+  Scenario: Book an flight with more than double the nr of babies then adults
     Given I should be at the home page
-    And I provide a valid departure airport and destinaton airport
+    And I provide a valid departure airport and destination airport
     And I provide a valid departure date and return date
     And I provide the 1 adult passengers and 4 Babies
     When I click the Search button
@@ -57,7 +57,7 @@ Feature: Home page transavia
 
   Scenario: Book a flight with return date before departure date
     Given I should be at the home page
-    And I provide a valid departure airport and destinaton airport
+    And I provide a valid departure airport and destination airport
     And I provide a valid departure date and return date before the departure date
     And I provide the valid number of passengers
     When I click the Search button
@@ -74,7 +74,7 @@ Feature: Appearance of Home page Transavia
     Then There are no spelling and grammatical errors in the text
     And I should not be able to type in drop down select lists
     And All fields on page (e.g. text box, radio options, dropdown lists) should be aligned properly
-    And Style, font size and color for headline, description text, labels, infield data, and grid info should be standard as specified
+    And Style, font size and colour for headline, description text, labels, infield data, and grid info should be standard as specified
     And Dropdown list options are readable and not truncated due to field size limit
     And Window is re-sizable
 
@@ -83,7 +83,7 @@ Feature: Security of Home page Transavia
   
   Scenario: SQL injection is not possible
     Given I should be at the home page
-    And I provide a SQL statement as departure airport and destinaton airport
+    And I provide a SQL statement as departure airport and destination airport
     And I provide a valid departure date and return date before the departure date
     And I provide the valid number of passengers
     When I click the Search button
